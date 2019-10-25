@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      JavaScript中的继承问题 | 东东 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="dongdongyeah">
+    
+    
+
+    <meta name="description" content="&amp;emsp;&amp;emsp;整理一下ECMAScript中的继承方式。继承主要有以下几种方式：  原型链继承 借调构造函数继承 组合继承 原型式继承 寄生式继承 寄生式组合继承  &amp;emsp;&amp;emsp;今天主要讲下原型链和借调构造函数二者合一的组合继承。 原型链继承&amp;emsp;&amp;emsp;首先，我们应该先了解下原型链继承的演变过程。如下图。&amp;emsp;&amp;emsp;考虑第一个问题，stu怎样才能继承">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中的继承问题 | 东东">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;index.html">
+<meta property="og:site_name" content="东东">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;整理一下ECMAScript中的继承方式。继承主要有以下几种方式：  原型链继承 借调构造函数继承 组合继承 原型式继承 寄生式继承 寄生式组合继承  &amp;emsp;&amp;emsp;今天主要讲下原型链和借调构造函数二者合一的组合继承。 原型链继承&amp;emsp;&amp;emsp;首先，我们应该先了解下原型链继承的演变过程。如下图。&amp;emsp;&amp;emsp;考虑第一个问题，stu怎样才能继承">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_7.png">
+<meta property="og:updated_time" content="2019-10-25T13:44:46.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;img_1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">东东</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          HELLO EVERYONE !
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">JavaScript中的继承问题</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-10-25" class="post-meta__date date">2019-10-25</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <hr>
+<p>&emsp;&emsp;整理一下ECMAScript中的继承方式。继承主要有以下几种方式：</p>
+<ul>
+<li>原型链继承</li>
+<li>借调构造函数继承</li>
+<li>组合继承</li>
+<li>原型式继承</li>
+<li>寄生式继承</li>
+<li>寄生式组合继承</li>
+</ul>
+<p>&emsp;&emsp;今天主要讲下原型链和借调构造函数二者合一的组合继承。</p>
+<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><p>&emsp;&emsp;首先，我们应该先了解下原型链继承的演变过程。如下图。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_1.png" alt="img_1"><br>&emsp;&emsp;考虑第一个问题，stu怎样才能继承到Person中的方法run()呢？<br>&emsp;&emsp;我们知道，当我们在stu实例中想要调用run()方法时，它会现在自己身上找，如果找不到，就沿着原型链往上，自己的原型对象即Student原型对象中找，如果仍然没找到，就找Student原型对象的原型对象,这里默认Object对象。那么，如果我们在这个时候改变Student原型对象的指向，不是默认的Object，而是Person原型对象，是不是就可以调用run()方法呢？答案是肯定的，大家可以试一试。<br>&emsp;&emsp;然后我们考虑第二个问题，在继承了父类原型对象中的方法后，怎样才能继承父类构造函数中的属性和方法呢？<br>&emsp;&emsp;或许，我们可以再次改变Student的原型对象的指向，让它指向某一个既能拿到构造函数里的东西，也能拿到原型对象里的东西的对象。这样就不难想出了，指向他们之间的某一个实例啊。当Person构造函数实例化某实例时，必定会把自己的东西给这个实例，而这个实例又可以访问它的原型对象Person,这样就解决了我们的问题。但是，还有个问题，我们的Student构造函数切断了自己的原型对象后，（如下图，浅灰色线条为已切断的链条）constructor的指向也随之切断了，这个时候我们应该修复一下，重新确定cnostructor的指向。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_2.png" alt="img_2"><br>&emsp;&emsp;简而言之，原型链继承就一句话，让子类构造函数的原型对象指向父类构造函数的实例。<br>&emsp;&emsp;再看看我们在代码中如何实现。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_3.png" alt="img_3"><br>&emsp;&emsp;我们前面分析了那么多，其实也就三句话：</p>
+<ul>
+<li>创建父类构造函数的实例</li>
+<li>把子类构造函数的原型指向父类实例</li>
+<li>修复constructor指针<h3 id="借调构造函数继承"><a href="#借调构造函数继承" class="headerlink" title="借调构造函数继承"></a>借调构造函数继承</h3>&emsp;&emsp;虽然原型链继承解决了我们上面的两个问题，但仍然经不起考验，所以我们很少单独使用。让我们接着看看，是怎样的经不起考验呢？<br>&emsp;&emsp;如果，我们想改变从父类继承来的属性，让它成为我们自己特有的属性,如下图。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_4.png" alt="img_4"><br>&emsp;&emsp;让我们看看它的运行结果。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_5.png" alt="img_5"><br>&emsp;&emsp;我们发现，pet数组是被共享使用的。其实，本来就是共享的，包括name属性也是，只不过name是基本类型，属于值传递，属性值会随之改变；而pet数组属于引用类型，所以的实例对象引用着同一个地址，某对象改变，就直接改变了该地址上的值，所以其他实例的值也会受到影响。<br>&emsp;&emsp;那怎么办呢？本来我们使用的属性和方法都是父类中的实例，这是我们子类的原型对象，会被共享，如果我们不使用原型对象，而是使用自己身上的东西，就不会被共享了。那么，怎么把这些不想被共享的东西添加到自己身上呢？在自己的构造函数中借调父类的属性，查找时如果在构造函数中找到了想要的属性，就不会继续往上到原型对象中查找了，也就不会被共享了。所以我们可以使用call()或者apply()借调父类构造函数。如下图。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_6.png" alt="img_6"><br>&emsp;&emsp;这样在各个实例中的pets就不共享也互不影响了，不信你试试！不过这里有个细节，借调函数要记得写在最前面哦，因为如果子类构造函数中本身有某个和借调来同名的属性，如果你放在后面，程序从上往下执行，会覆盖放在前面的子类的同名属性，但是我们通常不想被覆盖，而是想先调用自己，自己没有再往上查找，所以切记把借调函数卸载最前面！<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3>&emsp;&emsp;所谓组合继承，就是组合原型链继承和借调构造函数继承，取长补短以达到更佳效果。</li>
+<li>继承不想被共享的属性——借调构造函数</li>
+<li>继承想被共享的方法和属性——原型链<br>相信有了前面的基础，都可以很容易理解下图的代码。<br><img src="/JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/img_7.png" alt="img_7"><br>&emsp;&emsp;不过，组合继承虽然取长补短了原型链和借调函数的方法，但是仍然存在一些问题，等下次再补充。</li>
+</ul>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
