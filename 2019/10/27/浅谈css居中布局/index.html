@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      浅谈css居中布局 | 东东 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="dongdongyeah">
+    
+    
+
+    <meta name="description" content="总结下居中布局的几种常见用法。居中布局分为水平居中布局和垂直居中布局。 水平居中布局1.text-align的使用父级元素{     text-align:center;  子级元素{     display:inline-block; }这里text-align本来主要用于文本的对齐。它的第一个特点是，在其子级元素是行内元素时才生效。那为什么在子级元素中不用inline而是使用inline-bl">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈css居中布局 | 东东">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;%E6%B5%85%E8%B0%88css%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80&#x2F;index.html">
+<meta property="og:site_name" content="东东">
+<meta property="og:description" content="总结下居中布局的几种常见用法。居中布局分为水平居中布局和垂直居中布局。 水平居中布局1.text-align的使用父级元素{     text-align:center;  子级元素{     display:inline-block; }这里text-align本来主要用于文本的对齐。它的第一个特点是，在其子级元素是行内元素时才生效。那为什么在子级元素中不用inline而是使用inline-bl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;3-1img_1.png">
+<meta property="og:updated_time" content="2019-10-27T11:09:51.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;3-1img_1.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">东东</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          HELLO EVERYONE !
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">浅谈css居中布局</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2019-10-27" class="post-meta__date date">2019-10-27</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/css/" rel="tag">css</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>总结下居中布局的几种常见用法。<br>居中布局分为水平居中布局和垂直居中布局。</p>
+<h3 id="水平居中布局"><a href="#水平居中布局" class="headerlink" title="水平居中布局"></a>水平居中布局</h3><h4 id="1-text-align的使用"><a href="#1-text-align的使用" class="headerlink" title="1.text-align的使用"></a>1.text-align的使用</h4><pre><code>父级元素{
+    text-align:center;
+
+子级元素{
+    display:inline-block;
+}</code></pre><p>这里text-align本来主要用于文本的对齐。<br>它的第一个特点是，在其子级元素是行内元素时才生效。那为什么在子级元素中不用inline而是使用inline-block呢，原因很简单，因为我们需要固定宽度，才能有居中这一说法，而inline是不能设置宽高的，所以只能折中选择inline-block，既可以设置宽高，又可以有inline的特点用来生效text-align。<br>text-align还有一个特点，继承性，设置了text-align的元素，它的子级元素也会拥有同样的属性值，这个时候如果我们想更改对齐方式，而已重新在该子级元素中定义，这样就会把继承的东西覆盖了。</p>
+<h4 id="2-margin-auto的使用"><a href="#2-margin-auto的使用" class="headerlink" title="2.margin:auto的使用"></a>2.margin:auto的使用</h4><pre><code>子级元素{
+    display:table或者block;
+    margin: 0 auto;
+}</code></pre><p>这里需要了解下margin生效的两个要求：<br>（1）定宽块级元素<br>其实也很好理解，margin是什么？外边距。如果没有设置宽高，那哪来的距离之说。然后再说auto这个值，它指浏览器自动分配。在我试验了之后发现，水平方向上的auto会自动帮你均分剩余空间，然后呈现出水平居中，而垂直方向上，则是top对齐。<br>（2）不可脱离文档流<br>这里脱离文档流主要有三种方式，float、absolute、fixed。所以一定要避免子级元素脱离文档流。</p>
+<h3 id="3-left-transform的使用"><a href="#3-left-transform的使用" class="headerlink" title="3.left+transform的使用"></a>3.left+transform的使用</h3><pre><code>父级元素{
+    position:relative或者fixed或者absolute;
+} 
+
+子级元素{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+}</code></pre><p>absolute，绝对定位。当设置了绝对定位后，该元素会脱离文档流，上文就有提到。脱离文档流后，元素就会相对有设置定位的父级元素而定位，如果父级元素没有设置定位，它会相对页面定位。这里说个题外话，为什么这叫绝对定位啊，明明是相对啊，小白有点晕(((φ(◎ロ◎;)φ)))。<br>所以，当我们想设置相对于父容器居中时，一定要为父级元素开启定位，否则就直接是相对于页面居中了。<br>再说说left：50%的设置，完了你会发现，并没有实现居中，如下图。<br><img src="http://q00zw7vwa.bkt.clouddn.com/image/hexo/3-1img_1.png" alt="img_1"><br>很容易发现，实现居中的并不是整个红方块，而是红方块的左边框。那该怎么办呢？我们就像，再往右平移点吧，平移多少呢，肯定就是红方块的一半宽了。这个时候我们就可以使用transform平移属性，设置它在水平上平移使用translateY，往左平移就给个负值，右则相反。</p>
+<h2 id="垂直居中布局"><a href="#垂直居中布局" class="headerlink" title="垂直居中布局"></a>垂直居中布局</h2><h3 id="1-table-cell-vertical-align的使用"><a href="#1-table-cell-vertical-align的使用" class="headerlink" title="1.table-cell+vertical-align的使用"></a>1.table-cell+vertical-align的使用</h3><pre><code>父级元素{
+    display：table-cell；
+    vertical-align：middle；
+}</code></pre><p>首先要介绍一下table-cell，这个东西有点眼生，至少对于我来说是这样的。table-cell指的是设置当前元素为单元格元素，这里再说一个table，也是display的属性值之一，指的是设置当前元素为表格元素。再回到table-cell，单元格元素，为什么可以这么用呢？单元格具有水平和垂直两种对齐方式。再看看vertical-align属性，和上文的text-align有点类似。都可以用于文本对齐，也可以用于元素对齐，不过当使用元素对齐时，一定要记得前提是单元格元素，否则是没法实现的。多说一句，如果要实现文本对齐，要记得加上line-height哦。</p>
+<h3 id="2-top-transform的使用"><a href="#2-top-transform的使用" class="headerlink" title="2.top+transform的使用"></a>2.top+transform的使用</h3><pre><code>父级元素{
+    position：relative；
+}
+
+子级元素{
+    position：absolute；
+    top：50%；
+    transform：translateY (-50%)；
+}</code></pre><p>这里的使用方法和上文水平居中的使用方法类似。也就不在多说了。不过得再补充个东西，translate、translateX、translateY。translate是后两者的结合体，当想实现水平和垂直居中的时候，可以使用。</p>
+<p>其实，实现居中的方式远远不止这些，这只是比较常用的几种，还可以从中衍生出更多的方法，需要多写代码多总结。</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno" target="_blank" rel="noopener">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
