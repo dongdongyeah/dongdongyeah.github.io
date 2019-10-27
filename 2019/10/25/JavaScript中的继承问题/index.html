@@ -16,13 +16,13 @@
     
     
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;整理一下ECMAScript中的继承方式。继承主要有以下几种方式：  原型链继承 借调构造函数继承 组合继承 原型式继承 寄生式继承 寄生式组合继承  今天主要讲下原型链和借调构造函数二者合一的组合继承。 原型链继承首先，我们应该先了解下原型链继承的演变过程。如下图。考虑第一个问题，stu怎样才能继承到Person中的方法run()呢？我们知道，当我们在stu实例中想要调">
+    <meta name="description" content="整理一下ECMAScript中的继承方式。继承主要有以下几种方式：  原型链继承 借调构造函数继承 组合继承 原型式继承 寄生式继承 寄生式组合继承  今天主要讲下原型链和借调构造函数二者合一的组合继承。 原型链继承首先，我们应该先了解下原型链继承的演变过程。如下图。考虑第一个问题，stu怎样才能继承到Person中的方法run()呢？我们知道，当我们在stu实例中想要调用run()方法时，它会">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的继承问题 | 东东">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;25&#x2F;JavaScript%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="东东">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;整理一下ECMAScript中的继承方式。继承主要有以下几种方式：  原型链继承 借调构造函数继承 组合继承 原型式继承 寄生式继承 寄生式组合继承  今天主要讲下原型链和借调构造函数二者合一的组合继承。 原型链继承首先，我们应该先了解下原型链继承的演变过程。如下图。考虑第一个问题，stu怎样才能继承到Person中的方法run()呢？我们知道，当我们在stu实例中想要调">
+<meta property="og:description" content="整理一下ECMAScript中的继承方式。继承主要有以下几种方式：  原型链继承 借调构造函数继承 组合继承 原型式继承 寄生式继承 寄生式组合继承  今天主要讲下原型链和借调构造函数二者合一的组合继承。 原型链继承首先，我们应该先了解下原型链继承的演变过程。如下图。考虑第一个问题，stu怎样才能继承到Person中的方法run()呢？我们知道，当我们在stu实例中想要调用run()方法时，它会">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;img_2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;img_3.png">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;img_5.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;img_6.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;img_7.png">
-<meta property="og:updated_time" content="2019-10-27T08:58:55.377Z">
+<meta property="og:updated_time" content="2019-10-27T09:01:05.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;q00zw7vwa.bkt.clouddn.com&#x2F;image&#x2F;hexo&#x2F;img_2.png">
     
@@ -188,7 +188,7 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <hr>
-<p>&emsp;&emsp;整理一下ECMAScript中的继承方式。继承主要有以下几种方式：</p>
+<p>整理一下ECMAScript中的继承方式。继承主要有以下几种方式：</p>
 <ul>
 <li>原型链继承</li>
 <li>借调构造函数继承</li>
