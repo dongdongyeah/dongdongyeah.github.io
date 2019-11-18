@@ -1,0 +1,154 @@
+@charset "utf-8";html{background-color:#fff;color:#000;font-size:12px}
+body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
+body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
+h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
+h1,h2,h3,h4,h5,h6{font-family:tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight:normal}
+address,cite,dfn,em,i,optgroup,var{font-style:normal}
+table{border-collapse:collapse;border-spacing:0;text-align:left}
+caption,th{text-align:inherit}
+ul,ol,menu{list-style:none}
+fieldset,img{border:0}
+img,object,input,textarea,button,select{vertical-align:middle}
+article,aside,footer,header,section,nav,figure,figcaption,hgroup,details,menu{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+blockquote:before,blockquote:after,q:before,q:after{content:"\0020"}
+textarea{overflow:auto;resize:vertical}
+input,textarea,button,select,a{outline:0 none;border: none;}
+button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}
+mark{background-color:transparent}
+a,ins,s,u,del{text-decoration:none}
+sup,sub{vertical-align:baseline}
+html {overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-color: transparent;}
+body {font-family: Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;color: #333;font-size: .28em;line-height: 1;-webkit-text-size-adjust: none;}
+hr {height: .02rem;margin: .1rem 0;border: medium none;border-top: .02rem solid #cacaca;}
+a {color: green;text-decoration: none;}
+.blog-header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+}
+.blog-header .blog-subtitle {
+  font-size: 40px;
+  padding: 20px;
+  color: #008000;
+  font-weight: bolder;
+}
+.blog-header .blog-nav {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  width: 80px;
+  margin-top: 50px;
+  border: 1px solid #fff;
+}
+.blog-header .blog-nav .nav-li {
+  width: 70px;
+  height: 70px;
+  line-height: 60px;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+  font-size: 20px;
+  box-sizing: border-box;
+  background: #396;
+  border-radius: 50%;
+}
+.blog-header .blog-nav .nav-li a {
+  color: #fff;
+}
+.blog-header .blog-nav .nav-li:hover {
+  width: 80px;
+  background: #008000;
+  border-radius: 10px;
+}
+.blog-header .blog-nav .nav-li:hover a {
+  color: #fff;
+}
+.post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto 30px;
+  background: #eee;
+  padding: 20px 60px 20px 60px;
+  border-radius: 10px;
+  color: #666;
+}
+.post .title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.post .date {
+  position: absolute;
+  font-size: 20px;
+  right: 70px;
+  top: 60px;
+}
+.post .content {
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+.post-archive {
+  margin: 0 auto;
+  width: 40%;
+  padding: 10px 30px;
+  background: #ccc;
+  color: #008000;
+}
+.post-archive .year {
+  width: 100px;
+  height: 100px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 100px;
+  background: #eee;
+  border-radius: 50%;
+  font-weight: bold;
+}
+.post-archive .post-item {
+  width: 490px;
+  height: 30px;
+  line-height: 30px;
+  background: #eee;
+  padding: 10px;
+  margin: 10px 0;
+}
+.post-archive .post-item .date {
+  color: #060;
+  width: 400px;
+  height: 400px;
+  margin-right: 20px;
+}
+.post-archive .post-item .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.post-archive .post-item .title:hover {
+  color: #396;
+}
+.body {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 30px;
+}
+.body .post {
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #eee;
+}
+.body .post .post-title {
+  font-size: 30px;
+  line-height: 50px;
+}
+.body .post .post-title:hover {
+  color: #396;
+}
+.body .post .post-date {
+  font-size: 20px;
+  text-indent: 10px;
+  color: #666;
+  line-height: 30px;
+}
