@@ -42,11 +42,14 @@
   <div class="date">2019-12-05</div>
   <div class="content">
     <hr>
-<p>###松散类型<br>ECMAScript中的变量是松散类型。什么是松散类型？就是一个变量可以保存任何类型的值，即使保存过一种类型的值之后，仍然可以保存另一种类型的值。所以这里的变量仅仅是个在特定时间保存特定值的名字而已。<br>###变量<br>变量可以分为值类型和引用类型。怎么区分呢？这里主要涉及到的typeof操作符。<br>#####typeof操作符<br>使用 <code>typeof 变量</code> 可以判断出是值类型还是引用类型又或者是函数。<br>如果是值类型，会返回相应的数据类型，例如：string、number、boolean、undefined、Symbol。<br>如果是引用类型，会返回object，仅此而已，没法深入判断是数组还是对象等。想深入判断需要使用 <code>变量 instancof 类型</code> 操作符，通过返回Boolean值判断。<br>如果是函数，会返回function。<br>不过null是个特例，null属于值类型，但是却返回object，可以理解为空对象也是对象，所以返回object。<br>#####值类型和引用类型<br>值类型和引用类型的主要区别是存储数据的方式。这里涉及到堆和栈的概念。栈内存的存储方式是从上往下累加，堆内存则是从下往上累加。<br>值类型，顾名思义，直接存放的东西是具体的值。存放在栈中。</p>
+<h3 id="松散类型"><a href="#松散类型" class="headerlink" title="松散类型"></a>松散类型</h3><p>ECMAScript中的变量是松散类型。什么是松散类型？就是一个变量可以保存任何类型的值，即使保存过一种类型的值之后，仍然可以保存另一种类型的值。所以这里的变量仅仅是个在特定时间保存特定值的名字而已。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量可以分为值类型和引用类型。怎么区分呢？这里主要涉及到的typeof操作符。</p>
+<h5 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h5><p>使用 <code>typeof 变量</code> 可以判断出是值类型还是引用类型又或者是函数。<br>如果是值类型，会返回相应的数据类型，例如：string、number、boolean、undefined、Symbol。<br>如果是引用类型，会返回object，仅此而已，没法深入判断是数组还是对象等。想深入判断需要使用 <code>变量 instancof 类型</code> 操作符，通过返回Boolean值判断。<br>如果是函数，会返回function。<br>不过null是个特例，null属于值类型，但是却返回object，可以理解为空对象也是对象，所以返回object。</p>
+<h5 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h5><p>值类型和引用类型的主要区别是存储数据的方式。这里涉及到堆和栈的概念。栈内存的存储方式是从上往下累加，堆内存则是从下往上累加。<br>值类型，顾名思义，直接存放的东西是具体的值。存放在栈中。</p>
 <p><img src="http://q21ab5l2q.bkt.clouddn.com/9Z5%60YKOJ%299%7DS3E%5BK8%25N7%5B16.png" alt></p>
 <p>引用类型，在栈中存放着从堆中引用过来的地址，堆中的地址则存放着具体的值。</p>
 <p><img src="http://q21ab5l2q.bkt.clouddn.com/2$HT2%5BO%5DT@CCS%28EBVYMTHHU.png" alt></p>
-<p>#####复制变量值<br>值类型的复制，就是新开辟一个空间，存放一个要复制的值，相当于是一个副本，与正本唯一的联系就是，他们的值是暂时相等的，如果后期某一个变量改变了，彼此就不相等了。如下图所示。</p>
+<h5 id="复制变量值"><a href="#复制变量值" class="headerlink" title="复制变量值"></a>复制变量值</h5><p>值类型的复制，就是新开辟一个空间，存放一个要复制的值，相当于是一个副本，与正本唯一的联系就是，他们的值是暂时相等的，如果后期某一个变量改变了，彼此就不相等了。如下图所示。</p>
 <p><img src="http://q21ab5l2q.bkt.clouddn.com/X5E$O3MQ~N@C%280R2UJEOKY2.png" alt></p>
 <p><img src="http://q21ab5l2q.bkt.clouddn.com/E%29D%5B9QFJYSS_WKDE%28E%25VETQ.png" alt></p>
 <p>引用类型的复制，仅仅只是复制了这个变量的地址，并没有深入复制地址对应的内容，属于浅复制。这就会导致下面的情况，当你复制了一个变量之后，副本和正本引用着同一块内存地址，这一块地址成为了两者的纽带，只要其中一个变量改变了地址里的值，另一个变量也会随之改变。</p>
